@@ -1,0 +1,1388 @@
+/*
+    Generic Starry Sky Theme
+    [2025 Wikidot Theme]
+    Created by EasyEDG
+    License: CC BY-SA 3.0/4.0
+    Based on:
+    ->Bedrock Theme by EstrellaYoshte , Liryn and Placeholder McD
+    --Generic Space Theme by EstrellaYoshte
+    --Lumina Crash Theme by EstrellaYoshte
+    --Basalt by Theme Liryn , Placeholder McD
+*/
+
+/* ------- 字体 ------- */
+
+@import url('https://api.fonts.coollabs.io/css2?family=Urbanist:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('api.fonts.coollabs.io/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://api.fonts.coollabs.io/css2?family=Martian+Mono:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');
+
+:root {
+    --header-font: "Urbanist", "Noto Sans SC", Nanum Gothic, sans-serif;
+    --body-font: "DM Sans", "Noto Sans SC", sans-serif;
+    --mono-font: 'Martian Mono','Noto Serif SC', monospace;
+}
+
+/* ------- 变量 ------- */
+
+:root {
+    --header-title: "SCP 基金会";
+    --header-subtitle: "明星 - 彗星 - 行星";
+    --header-logo: url(https://scp-wiki.wdfiles.com/local--files/theme%3Aspace/spacelogo.png);
+    --title-size: min(calc(1.5rem + 3.75vw), 4.25rem);
+    --subtitle-size: min(calc(1.25rem + 2.75vw), 3.75rem);
+    --basalt-focus-color: var(--space-moon);
+    --basalt-undertone: var(--space-moon);
+    --basalt-UI-dark-palette: var(--space-sun);
+    --basalt-main-text-color: var(--space-starlight);
+    --basalt-secondary-color: var(--space-void) / 0.575;
+    --basalt-background-color: var(--space-void) / 0.575;
+    --base-border-width: 0.175rem;
+    --login-status-link-background-hover: var(--space-sun);
+    --login-status-text-color: var(--space-starlight);
+    --selection-background-color: var(--space-nebula);
+    --selection-text-color: var(--space-starlight);
+    --rate-module-info-icon-color: var(--space-blackhole);
+    --tab-focus-text-color: var(--space-nebula);
+    --scrollbar-track-color: var(--space-blackhole);
+    --scrollbar-thumb-color: var(--space-planet);
+    --top-bar-link-color-hover: var(--space-sun);
+    --top-bar-link-background-hover: var(--space-sun);
+    --top-bar-dropdown-background: var(--space-blackhole);
+    --header-background-color: var(--space-void) / 0.575;
+    --search-icon-color: var(--space-sun);
+    --search-icon-color-hover: var(--space-void) / 0.575;
+    --login-status-background-color: var(--space-void) / 0.575;
+    --rate-module-cancel-color: var(--space-moon);
+    --base-header-height: min(calc(14.5rem + 16.5vmin), calc(24.75rem + 14.5vw));
+    --header-border-width: 0rem;
+    --search-button-width: 2.325rem;
+    --user-button-width: 3.25rem;
+    --side-bar-button-width: 3.625rem;
+    --side-bar-heading-background-color: 253, 253, 253 / 0.07;
+    --side-bar-button-mask: var(--space-star-mask);
+    --main-content-width: 500rem;
+    --link-color: var(--space-planet);
+    --link-visited-color: var(--space-nebula);
+    --link-newpage-color: var(--basalt-cancel-color);
+    --edit-area-border-color: var(--space-moon);
+    --edit-area-toolbar-background-color: var(--space-void) / 0.575;
+    --edit-area-main-background-color: var(--space-void) / 0.575;
+    --edit-area-ancillary-background-color: var(--space-void) / 0.575;
+    --action-area-border-color: var(--space-moon);
+    --button-text-color: var(--space-moon);
+    --button-background-color: var(--space-void);
+    --button-border-color: var(--space-moon);
+    --button-outline-color: var(--space-moon);
+    --button-hover-text-color: var(--space-void);
+    --button-hover-background-color: var(--space-moon);
+    --swatch-menubg-black-color: 59, 60, 63;
+    --swatch-menutxt-dark-color: 100, 100, 100;
+    --header-drop-shadow-opacity: 0.32;
+    --space-body-bg: url(https://scp-wiki.wdfiles.com/local--files/theme%3Aspace/spacebg.jpg);
+    --space-header-layer-0: url(https://scp-wiki.wdfiles.com/local--files/theme%3Aspace/Milky_way.jpg);
+    --space-header-layer-1: url(https://scp-wiki.wdfiles.com/local--files/theme%3Aspace/spacehead-layer1.png);
+    --space-footer-bg: url(https://scp-wiki.wdfiles.com/local--files/theme%3Aspace/spacefooter.png);
+    --space-blackhole: 0 0 0;
+    --space-void: 22 23 33;
+    --space-starlight: 255 255 255;
+    --space-planet: 92 222 236;
+    --space-nebula: 95 172 188;
+    --space-sun: 255 191 165;
+    --space-moon: 229 214 157;
+    --space-star-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Layer 1' viewBox='0 0 419.8 419.8'%3E%3Cpath d='M209.9 300.6c0-44-46.7-90.8-90.7-90.8 44 0 90.7-46.6 90.7-90.5 0 44 46.7 90.6 90.7 90.6-44 0-90.8 46.7-90.8 90.7z'/%3E%3C/svg%3E");
+    --space-star-mask-1: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 348.4 429.4'%3E%3Cg data-name='Layer 2'%3E%3Cpath d='M348.4 186.2C191 207.6 193 219.6 174.3 429.5c-18.9-210-16.9-222-174.3-243.4C157.4 164.8 152.8 157.4 174.2 0c21.4 157.4 16.8 164.8 174.3 186.2Z' data-name='Layer 1' style='fill:%23231f20'/%3E%3C/g%3E%3C/svg%3E");
+    --space-constellation-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 700 700'%3E%3Cpath d='M518 218.4c-9.5 0-18 4-24 10l-94.2-54.2c.6-2.3.6-4 .6-6.2a26 26 0 0 0-6.2-17.4l26.4-39.7A27.7 27.7 0 0 0 456.4 84c0-15.7-12.3-28-28-28s-28 12.3-28 28a26 26 0 0 0 6.2 17.4L380.2 141c-2.8-.5-5-1.1-7.8-1.1-15.7 0-28 12.3-28 28s12.3 28 28 28c7.3 0 14-2.8 19-7.3l94.7 54.3a41 41 0 0 0-1.1 9c0 6.2 1.6 11.8 4.4 16.2L391 363.4c-5-3.3-11.2-5-17.4-5-2.2 0-5 0-7.3.6l-29.6-58.8a29 29 0 0 0 8.4-20.2c0-15.7-12.4-28-28-28-15.7 0-28 12.3-28 28v2.2l-80.1 33a33.8 33.8 0 0 0-26.9-12.8 33.7 33.7 0 0 0-33.6 33.6 33.7 33.7 0 0 0 42 32.5l49.3 88.5c-4.5 5-7.3 11.7-7.3 19 0 15.7 12.3 28 28 28a27.7 27.7 0 0 0 26.3-37l65-48.7a33.3 33.3 0 0 0 20.7 7.3A33.7 33.7 0 0 0 406 392c0-6.2-1.7-11.8-4.5-16.2l98.6-95.2c5 3.3 11.2 5 17.3 5A33.7 33.7 0 0 0 551 252a33.2 33.2 0 0 0-33-33.6zM428.4 72.8a11.2 11.2 0 1 1 0 22.4 11.2 11.2 0 0 1 0-22.4zm-56 106.4a11.2 11.2 0 1 1 0-22.4 11.2 11.2 0 0 1 0 22.4zm-56 89.6a11.2 11.2 0 1 1 0 22.4 11.2 11.2 0 0 1 0-22.4zM165.2 336c0-9.5 7.3-16.8 16.8-16.8s16.8 7.3 16.8 16.8-7.3 16.8-16.8 16.8-16.8-7.3-16.8-16.8zm50.4 0c0-1.7 0-3.4-.6-4.5l80.1-33c5 6.1 12.9 10 21.3 10 1.7 0 2.8 0 4.5-.5l29.7 59.4a30.8 30.8 0 0 0-11.8 24.6c0 4.5 1.1 9 2.8 12.9l-64.4 48.7c-5-3.4-10.6-5.6-16.8-5.6-2.2 0-4 0-5.6.6L205.5 360a33.8 33.8 0 0 0 10.1-24.1zm44.8 151.2a11.2 11.2 0 1 1 0-22.4 11.2 11.2 0 0 1 0 22.4zm112-78.4c-9.5 0-16.8-7.3-16.8-16.8s7.3-16.8 16.8-16.8 16.8 7.3 16.8 16.8-7.3 16.8-16.8 16.8zm145.6-140c-9.5 0-16.8-7.3-16.8-16.8s7.3-16.8 16.8-16.8 16.8 7.3 16.8 16.8-7.3 16.8-16.8 16.8z'/%3E%3C/svg%3E");
+    --space-orbit-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 468.1 468.1'%3E%3Cpath d='M234 468.1c-8.2 0-16.6-.4-24.7-1.3a11 11 0 1 1 2.3-21.7 212.7 212.7 0 0 0 150-41.4 21 21 0 0 1-.7-5.6 28.5 28.5 0 0 1 35.6-27.5A212.4 212.4 0 0 0 213.9 22.8 11 11 0 0 1 211.8 1a232.5 232.5 0 0 1 187.8 67.5A232.5 232.5 0 0 1 468 234.2c0 58.2-21.5 114-60.5 157a11 11 0 0 1-14.5 1.7 6.5 6.5 0 0 0-10.3 5.3c0 1.3.4 2.4 1 3.5a11 11 0 0 1-2.4 14.3 234.6 234.6 0 0 1-147.2 52zm-76.7-13.5c-1.3 0-2.5-.2-3.8-.7A233.5 233.5 0 0 1 0 234.1C0 135 62.6 46.4 155.9 13.4a11 11 0 0 1 7.3 20.6A212.6 212.6 0 0 0 21.9 234 213 213 0 0 0 161 433.5a11 11 0 0 1-3.7 21.2z'/%3E%3Cpath d='M234 424.4A190.5 190.5 0 0 1 76.8 127a28.3 28.3 0 0 1 34.5-38.3 189.6 189.6 0 0 1 88-41.8 11 11 0 1 1 4 21.5c-30.9 5.7-59.5 20-82.8 41.3a11 11 0 0 1-13.8.8 6.6 6.6 0 0 0-8.7 9.7 11 11 0 0 1 .6 13.7A168.6 168.6 0 0 0 234 402.5a168.4 168.4 0 0 0 20.3-335.7 11 11 0 0 1 2.6-21.7 190.3 190.3 0 0 1-22.8 379.3z'/%3E%3Cpath d='M247.8 423.9a11 11 0 0 1-.8-21.9 169 169 0 0 0 155.5-168A169.2 169.2 0 0 0 234.1 65.7a168 168 0 0 0-106 37.5 28.4 28.4 0 0 1-35.4 39.4 167 167 0 0 0-27 91.6c0 78.9 53.5 146.4 130.3 164a11 11 0 1 1-5 21.4A190.8 190.8 0 0 1 81 121a11 11 0 0 1 17-.7c.8.8 2.4 2.2 5 2.2a6.6 6.6 0 0 0 3.7-11.9 11 11 0 0 1-1-17 189.8 189.8 0 0 1 131.7-49.8c50.2.8 97.2 21 132.4 56.8A189.2 189.2 0 0 1 424.4 234c0 48.3-18.1 94.3-51 129.6A189.6 189.6 0 0 1 247.8 424z'/%3E%3Cpath d='M234 332.5a98.6 98.6 0 0 1-27.5-193 a28.5 28.5 0 0 1 55.1 0A98.7 98.7 0 0 1 313 293a99.3 99.3 0 0 1-49.6 35.2 11 11 0 0 1-6.5-21 a76.7 76.7 0 0 0-7.6-148.1 a11 11 0 0 1-8.7-12.4 6.6 6.6 0 1 0-13 .6 11 11 0 0 1-8.8 11.8A76.7 76.7 0 0 0 234 310.6a11 11 0 0 1 0 22z'/%3E%3Cpath d='M234 332.5a98.6 98.6 0 0 1-19.5-195 a11 11 0 0 1 13 9.7 6.5 6.5 0 0 0 6.6 6c3.4 0 6.2-2.6 6.5-6a11 11 0 0 1 21.7-.6 11 11 0 0 1 12.2-2.3A98.6 98.6 0 0 1 234 332.5zm-24.2-171a76.7 76.7 0 1 0 55.8 2.8 10.9 10.9 0 0 1-5.7-5.8 28.3 28.3 0 0 1-25.8 16.5 28.3 28.3 0 0 1-24.3-13.6z'/%3E%3Cpath d='M234 175a28.3 28.3 0 0 1-28.4-28.4 28.5 28.5 0 1 1 28.5 28.4zm0-35a6.6 6.6 0 1 0 0 13.1 6.6 6.6 0 0 0 0-13zm155.4 286.6a28.3 28.3 0 0 1-28.5-28.5 28.5 28.5 0 1 1 28.5 28.5zm0-35a6.6 6.6 0 1 0 0 13.1 6.6 6.6 0 0 0 0-13.1ZM102.8 144.4a28.5 28.5 0 1 1 0-57 28.5 28.5 0 0 1 0 57zm0-35a6.6 6.6 0 1 0 0 13.1 6.6 6.6 0 0 0 0-13.1zm132.4 175a49.3 49.3 0 1 1 0-98.6 49.3 49.3 0 0 1 0 98.6zm0-76.6a27.4 27.4 0 1 0 0 54.8 27.4 27.4 0 0 0 0-54.8z'/%3E%3C/svg%3E");
+    --lv1-color: 0, 159, 107;
+    --lv2-color: 0, 135, 189;
+    --lv3-color: 255, 211, 0;
+    --lv4-color: 255, 109, 0;
+    --lv5-color: 196, 2, 51;
+    --lv6-color: 173, 77, 191;
+    --one-color: var(--lv1-color);
+    --two-color: var(--lv2-color);
+    --three-color: var(--lv3-color);
+    --four-color: var(--lv4-color);
+    --five-color: var(--lv5-color);
+    --six-color: var(--lv6-color);
+    --swatch-menubg-black-color: var(--space-starlight);
+}
+
+/* ------- 版头 ------- */
+
+#header {
+    contain: initial;
+    height: auto;
+    min-height: var(--header-final-height);
+    position: static;
+    background-color: transparent;
+    background-size: contain;
+    grid-template-areas:
+        '. . . . .'
+        '. search line top-bar user'
+        'h-link h-link h-link h-link h-link';
+    grid-template-columns: var(--side-bar-button-width) var(--search-button-width) 1fr max-content var(--user-button-width);
+    grid-template-rows: 1.5rem 3.75rem 1fr;
+}
+
+#header h1 {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+#header h1 a {
+    justify-content: center;
+    width: auto;
+    height: auto;
+    flex-wrap: wrap;
+    pointer-events: none;
+    gap: 1rem calc(var(--base-header-height) * .125);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#header h1 a::before, #header h1 a span {
+    height: auto;
+    pointer-events: auto;
+}
+
+#header h1 a::before {
+    width: calc(var(--base-header-height) * .75);
+    aspect-ratio: 1;
+    min-width: unset;
+    max-width: 100%;
+}
+
+#header h1 a span::before {
+    font-weight: 300;
+    color: rgb(var(--space-starlight));
+    text-shadow: 0 0 .375rem currentColor;
+    font-family: var(--header-font);
+}
+
+#header h1 a span::after {
+    font-weight: 700;
+    text-shadow: none;
+    color: rgb(var(--space-sun));
+    font-family: var(--header-font);
+}
+
+#header-extra-div-1 {
+    grid-area: line;
+    height: .025rem;
+    background-color: rgb(var(--basalt-main-text-color), .575);
+    align-self: center;
+}
+
+#extrac-div-1 {
+    pointer-events: none;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--header-final-height) + 23rem);
+    background-image: var(--space-header-layer-0);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#extrac-div-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(var(--space-planet) / 10%);
+}
+
+#extrac-div-1 > span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--space-header-layer-1);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#extrac-div-1::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 42rem;
+    width: 100%;
+    background: linear-gradient(to bottom, rgb(var(--space-blackhole)) 5%, rgb(var(--space-blackhole) / 0));
+}
+
+#login-status span.printuser > a {
+    background-color: rgb(var(--space-planet), .325);
+    -webkit-backdrop-filter: blur(var(--basalt-UI-blur));
+    backdrop-filter: blur(var(--basalt-UI-blur));
+}
+
+#login-status a:is(.login-status-create-account, .login-status-sign-in):is(:hover, :focus) {
+    color: rgb(var(--space-sun));
+}
+
+#search-top-box-form:focus-within #search-top-box-input, #search-top-box-input:focus, #search-top-box-input:hover {
+    color: rgb(var(--space-void));
+    background-color: rgb(var(--space-sun));
+}
+
+#login-status {
+    background-color: rgba(var(--space-nebula) / 0.25);
+}
+
+/* ------- 顶栏 ------- */
+
+#top-bar div[class*=top-bar] > ul {
+    justify-content: flex-end;
+    position: relative;
+    z-index: 4;
+}
+
+#top-bar div[class*=top-bar] > ul::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(var(--space-void) / 0.575);
+    -webkit-backdrop-filter: blur(var(--basalt-UI-blur));
+    backdrop-filter: blur(var(--basalt-UI-blur));
+}
+
+#top-bar div[class*=top-bar] > ul > li > a {
+    padding-inline: calc(var(--header-UI-font-size) * 1.875);
+    font-weight: normal;
+    font-size: 1.05em;
+}
+
+#top-bar div[class*=top-bar] > ul > li > a::after {
+    display: none;
+}
+
+#top-bar div[class*=top-bar] > ul > li > a::before {
+    top: initial;
+    bottom: 0;
+    left: initial;
+    right: 0;
+    width: 0;
+    height: .175rem;
+    transition: width var(--header-link-transition-2nd);
+}
+
+#top-bar div[class*=top-bar] > ul > li.sfhover > a::before,
+#top-bar div[class*=top-bar] > ul > li:focus-within > a::before,
+#top-bar div[class*=top-bar] > ul > li > a:focus::before,
+#top-bar div[class*=top-bar] > ul > li > a:hover::before {
+    width: 100%;
+    height: .175rem;
+    transition: width var(--header-link-transition-2nd);
+}
+
+#top-bar div[class*=top-bar] ul li ul {
+    background-color: rgb(var(--space-void) / 0.575);
+    right: 0;
+    left: unset;
+}
+
+#top-bar div[class*=top-bar] > ul > li > ul::before {
+    all: unset;
+}
+
+#top-bar div[class*=top-bar] ul li ul li a::before {
+    all: unset;
+}
+
+/* ------- 侧边栏 ------- */
+
+@media not screen and (max-width: 1024px) {
+    #side-bar {
+        height: 100%;
+        margin-top: 0;
+    }
+
+    #side-bar::before, #side-bar::after {
+        inset: initial;
+        left: 0;
+        top: 1.5rem;
+        height: 3.75rem;
+        transition: left var(--side-bar-transition);
+    }
+
+    #side-bar::before {
+        background-color: transparent;
+        -webkit-backdrop-filter: blur(var(--basalt-UI-blur));
+        backdrop-filter: blur(var(--basalt-UI-blur));
+    }
+
+    #side-bar:is(:hover, :focus-within)::before {
+        height: 3.75rem;
+    }
+
+    #side-bar:is(:hover, :focus-within)::before,
+    #side-bar:is(:hover, :focus-within)::after {
+        left: var(--side-bar-width);
+    }
+}
+
+#top-bar div.mobile-top-bar > .open-menu {
+    z-index: 8;
+}
+
+:is(#side-bar, #interwiki) .side-block {
+    -webkit-backdrop-filter: blur(calc(var(--basalt-UI-blur) * 3.5));
+    backdrop-filter: blur(calc(var(--basalt-UI-blur) * 3.5));
+}
+
+:is(#side-bar, #interwiki) .heading {
+    background-color: transparent;
+    display: flex;
+    padding: .5em;
+    gap: .375em;
+    font-size: 1.05em;
+}
+
+:is(#side-bar, #interwiki) .heading::after {
+    content: "";
+    display: block;
+    background-color: currentColor;
+    flex-grow: 1;
+    height: .05rem;
+    align-self: center;
+}
+
+#interwiki {
+    background: transparent;
+}
+
+#interwiki body::before {
+    all: unset;
+}
+
+/* ------- 全局 ------- */
+
+body {
+    font-family: var(--body-font);
+    font-size: 0.925rem;
+    color: rgb(var(--space-starlight));
+    background-color: rgb(var(--space-void));
+    background-image: var(--space-body-bg);
+    background-size: calc(50rem + 20%);
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    aspect-ratio: 5 / 2;
+    transform: translate(0, -96%);
+    background: var(--space-header-layer-1:) no-repeat bottom;
+    background-size: cover;
+}
+
+body, li, p {
+    line-height: 1.5;
+}
+
+#main-content {
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    margin-top: 23rem;
+}
+
+#main-content :is(.pager .pager-no, .pager > span.current) {
+    color: rgb(var(--main-text-color));
+}
+
+#page-content {
+    width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tt, .page-source, .code, pre {
+    font-family: var(--mono-font);
+}
+
+tt, .page-source, .code {
+    font-size: 0.85em;
+}
+
+::selection {
+    background-color: rgb(var(--space-nebula) / 0.925);
+    color: rgb(var(--space-starlight));
+}
+
+/* ------- 页面元素 ------- */
+
+#page-title, .meta-title {
+    color: rgb(var(--space-sun));
+    font-family: var(--header-font);
+    width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: solid 0.15rem rgb(var(--space-sun));
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(var(--space-moon));
+    font-weight: bold;
+    font-family: var(--header-font);
+    --text-color: var(--space-moon);
+}
+
+:where(#main-content) :is(h1, h2, h3) :not(#action-area > h1, #history-subarea > h2)::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    margin-inline-end: 0.325rem;
+    background-color: currentColor;
+    height: 0.95em;
+    width: 1.05rem;
+    top: 0.15em;
+    -webkit-mask-image: var(--space-star-mask-1);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--space-star-mask-1);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+
+div#toc {
+    border: solid var(--toc-border-width) rgb(var(--space-moon));
+}
+
+strong {
+    color: currentColor;
+    color: rgb(var(--text-color));
+}
+
+/* ACS禁用 */
+div.anom-bar-container {
+    display: none !important;
+}
+
+/* -- ACS着色系统 -- */
+
+span.table1 {
+    --text-color: var(--lv1-color);
+}
+
+span.table2 {
+    --text-color: var(--lv2-color);
+}
+
+span.table3 {
+    --text-color: var(--lv3-color);
+}
+
+span.table4 {
+    --text-color: var(--lv4-color);
+}
+
+span.table5 {
+    --text-color: var(--lv5-color);
+}
+
+span.table6 {
+    --text-color: var(--lv6-color);
+}
+
+/* -- 版式着色系统 | 警告：测试阶段，请小心使用。 -- */
+span.theme-sun {
+    --text-color: var(--space-sun);
+}
+
+span.theme-moon {
+    --text-color: var(--space-moon);
+}
+
+/* -- 分割线 -- */
+
+hr {
+    --hr-icon-mask: var(--space-constellation-mask);
+    --hr-icon-size: 3.75rem;
+    margin: .5rem 0;
+    background: transparent;
+    height: var(--hr-icon-size);
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+hr::before, hr::after {
+    content: "";
+    display: grid;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: rgb(var(--space-sun));
+}
+
+hr::before {
+    height: 0.05rem;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, black calc(50% - var(--hr-icon-size)/2 - 0.125rem), transparent calc(50% - var(--hr-icon-size)/2 - 0.125rem), transparent calc(50% + var(--hr-icon-size)/2 + 0.125rem), black calc(50% + var(--hr-icon-size)/2 + 0.125rem));
+    mask-image: linear-gradient(90deg, black calc(50% - var(--hr-icon-size)/2 - 0.125rem), transparent calc(50% - var(--hr-icon-size)/2 - 0.125rem), transparent calc(50% + var(--hr-icon-size)/2 + 0.125rem), black calc(50% + var(--hr-icon-size)/2 + 0.125rem));
+}
+
+hr::after {
+    width: var(--hr-icon-size);
+    height: var(--hr-icon-size);
+    -webkit-mask-image: var(--hr-icon-mask);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    mask-image: var(--hr-icon-mask);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+}
+
+/* -- 图片方块和代码方块 -- */
+/* 图片方块 */
+.scp-image-block {
+    border: none;
+    box-shadow: none;
+    position: relative;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    background: rgb(var(--space-blackhole) / 0.175);
+    -webkit-backdrop-filter: blur(0.125rem);
+    backdrop-filter: blur(0.125rem);
+}
+
+.scp-image-block.block-left {
+    margin-left: 0;
+}
+
+.scp-image-block.block-right {
+    margin-right: 0;
+}
+
+.scp-image-block::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: solid 0.1rem rgb(var(--space-moon));
+    box-sizing: border-box;
+    pointer-events: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.325rem), calc(100% - 1.325rem) 100%, 0 100%);
+}
+
+.scp-image-block::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(var(--space-moon));
+    -webkit-mask-image: var(--space-orbit-mask);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--space-orbit-mask);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transform: translate(46.5%, 46.5%);
+}
+
+.scp-image-block .scp-image-caption {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    padding-top: 0.25rem;
+    color: rgb(var(--space-moon));
+    font-weight: normal;
+    font-size: .95em;
+}
+
+/* 代码方块 */
+.code {
+    background-color: rgb(var(--space-void) / 0.575);
+}
+
+.code .hl-code,
+.code .hl-default,
+.code .hl-brackets,
+.code .hl-quotes,
+.code .hl-string,
+.code .hl-identifier {
+    color: rgb(var(--space-starlight));
+}
+.code .hl-special {
+    color: rgb(var(--space-nebula));
+}
+.code .hl-number {
+    color: rgb(var(--space-sun));
+}
+.code .hl-reserved {
+    color: rgb(var(--space-planet));
+}
+
+/* -- DIV块 -- */
+
+blockquote, div.blockquote, #toc {
+    background-color: rgb(var(--space-void) / 0.575);
+    border: solid 0.1rem rgb(var(--space-moon));
+    padding: 0.25rem 1.325rem;
+}
+
+.blockquote.narrow {
+    width: 47rem;
+}
+
+div.blockquote.double-border {
+    border-style: double;
+    border-width: thick;
+}
+
+div.blockquote.dashed-border {
+    border-style: dashed;
+}
+
+div.blockquote.thick-border {
+    border-width: thick;
+}
+
+div.blockquote.notation {
+    max-width: 100%;
+    border-width: 0.2rem;
+    border-top: none;
+    border-bottom: none;
+}
+
+/* 警告/通知方块 */
+div.warning {
+    position: relative;
+    background-color: rgb(var(--space-void) / 0.575);
+    min-height: 4rem;
+    margin-inline: auto;
+    margin-block: 2rem;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border: solid 0.1rem rgb(var(--space-moon));
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 2;
+}
+
+div.warning::before {
+    color: rgb(var(--space-moon));
+    content: attr(data-title);
+    font-family: var(--UI-font);
+    font-weight: 900;
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5em;
+}
+
+div.warning::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--warning-logo);
+    background-color: rgb(var(--space-moon));
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    mask-image: var(--warning-logo);
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: contain;
+    opacity: 1;
+    z-index: 1;
+    background-blend-mode: normal;
+}
+
+div.warning > div.warning-footer {
+    font-family: var(--UI-font);
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5em;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* 普通特殊 div 块 */
+.star {
+    background-color: rgb(var(--space-void) / 0.575);
+    border: none;
+    padding: 0.25rem 1.325rem;
+    margin: 1.25rem auto;
+}
+
+.star.bottom-right {
+    position: relative;
+    min-height: 2rem;
+    padding: 1rem;
+}
+
+.star.bottom-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: solid 0.1rem rgb(var(--space-moon));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.325rem), calc(100% - 1.325rem) 100%, 0 100%);
+    pointer-events: none;
+}
+
+.star.bottom-right::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(var(--space-moon));
+    -webkit-mask-image: var(--space-star-mask);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--space-star-mask);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transform: translate(49%, 49%);
+}
+
+.star.bottom-left {
+    position: relative;
+    min-height: 2rem;
+    padding: 1rem;
+}
+
+.star.bottom-left::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: solid 0.1rem rgb(var(--space-moon));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, calc(0% + 1.325rem) 100%, 0 calc(100% - 1.325rem));
+    pointer-events: none;
+}
+
+.star.bottom-left::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(var(--space-moon));
+    -webkit-mask-image: var(--space-star-mask);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--space-star-mask);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transform: translate(-49%, 49%) rotate(90deg);
+}
+
+.star.top-right {
+    position: relative;
+    min-height: 2rem;
+    padding: 1rem;
+}
+
+.star.top-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: solid 0.1rem rgb(var(--space-moon));
+    clip-path: polygon(0 0, calc(100% - 1.325rem) 0, 100% calc(0% + 1.325rem), 100% 100%, 0 100%);
+    pointer-events: none;
+}
+
+.star.top-right::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(var(--space-moon));
+    -webkit-mask-image: var(--space-star-mask);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--space-star-mask);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transform: translate(49%, -49%) rotate(-90deg);
+}
+
+.star.top-left {
+    position: relative;
+    min-height: 2rem;
+    padding: 1rem;
+}
+
+.star.top-left::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: solid 0.1rem rgb(var(--space-moon));
+    clip-path: polygon(0 calc(0% + 1.325rem), calc(0% + 1.325rem) 0, 100% 0, 100% 100%, 0 100%);
+    pointer-events: none;
+}
+
+.star.top-left::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(var(--space-moon));
+    -webkit-mask-image: var(--space-star-mask);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--space-star-mask);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transform: translate(-49%, -49%) rotate(180deg);
+}
+
+/* -- 表格 -- */
+
+:is(:where(#page-content) table:not(.form), table.wiki-content-table) :is(th, td) {
+    border-width: 0.1rem;
+}
+
+table.wiki-content-table {
+    --table-color: var(--space-nebula);
+    --table-text-color: var(--space-void);
+}
+
+table.wiki-content-table th {
+    background-color: rgb(var(--table-color));
+    color: rgb(var(--table-text-color));
+    border-color: rgb(var(--table-color));
+}
+
+table.wiki-content-table td {
+    background-color: rgb(var(--space-void) / 0.575);
+    border-color: rgb(var(--space-void));
+}
+
+/* 更宽的表格 */
+:is(div.table.wide) table.wiki-content-table {
+    width: calc(100% - 0.1rem * 2);
+}
+
+/* 经典表格 */
+:is(div.table.classic) table.wiki-content-table :is(th, td) {
+    border-color: rgb(var(--table-color));
+}
+
+/* ACS着色系统 */
+:is(div.table1) table.wiki-content-table :is(th, td) {
+    --table-color: var(--lv1-color);
+    --table-text-color: var(--space-starlight);
+}
+
+:is(div.table2) table.wiki-content-table :is(th, td) {
+    --table-color: var(--lv2-color);
+    --table-text-color: var(--space-starlight);
+}
+
+:is(div.table3) table.wiki-content-table :is(th, td) {
+    --table-color: var(--lv3-color);
+}
+
+:is(div.table4) table.wiki-content-table :is(th, td) {
+    --table-color: var(--lv4-color);
+    --table-text-color: var(--space-starlight);
+}
+
+:is(div.table5) table.wiki-content-table :is(th, td) {
+    --table-color: var(--lv5-color);
+    --table-text-color: var(--space-starlight);
+}
+
+:is(div.table6) table.wiki-content-table :is(th, td) {
+    --table-color: var(--lv6-color);
+    --table-text-color: var(--space-starlight);
+}
+
+/* -- YUI Tab -- */
+#page-content > .yui-navset {
+    --yui-tab-color: var(--space-planet);
+    --yui-tab-text-color: var(--space-void);
+}
+
+.yui-navset.yui-navset-top > ul.yui-nav {
+    font-family: var(--header-font);
+    gap: 0;
+    background-color: rgb(var(--space-void));
+}
+
+.yui-navset.yui-navset-top > ul.yui-nav li {
+    background-color: transparent;
+}
+
+.yui-navset.yui-navset-top > ul.yui-nav li::before {
+    background-color: transparent;
+    border-bottom: solid .2rem rgb(var(--yui-tab-color));
+}
+
+.yui-navset.yui-navset-top > ul.yui-nav li.selected::before {
+    width: 100%;
+    background-color: rgb(var(--yui-tab-color));
+}
+
+.yui-navset.yui-navset-top > ul.yui-nav li a:is(:hover, :focus) {
+    color: rgb(var(--yui-tab-color));
+    font-weight: bold;
+}
+
+.yui-navset.yui-navset-top > ul.yui-nav li.selected a {
+    color: rgb(var(--yui-tab-text-color));
+}
+
+.yui-navset.yui-navset-top > ul.yui-nav li.selected::after {
+    display: none;
+}
+
+.yui-navset.yui-navset-top .yui-content {
+    border: solid 1px rgb(var(--space-void));
+    border-top: none;
+    background-color: rgb(var(--space-void) / 0.575);
+    padding: 0.375rem 0.75rem;
+    box-shadow: 0 0 .675rem .125rem rgb(var(--space-starlight) / 0.05);
+}
+
+/* ACS着色系统 */
+#page-content > div.table1 > .yui-navset {
+    --yui-tab-color: var(--lv1-color);
+    --yui-tab-text-color: var(--space-starlight);
+}
+
+#page-content > div.table2 > .yui-navset {
+    --yui-tab-color: var(--lv2-color);
+    --yui-tab-text-color: var(--space-starlight);
+}
+
+#page-content > div.table3 > .yui-navset {
+    --yui-tab-color: var(--lv3-color);
+    --yui-tab-text-color: var(--space-void);
+}
+
+#page-content > div.table4 > .yui-navset {
+    --yui-tab-color: var(--lv4-color);
+    --yui-tab-text-color: var(--space-starlight);
+}
+
+#page-content > div.table5 > .yui-navset {
+    --yui-tab-color: var(--lv5-color);
+    --yui-tab-text-color: var(--space-starlight);
+}
+
+#page-content > div.table6 > .yui-navset {
+    --yui-tab-color: var(--lv6-color);
+    --yui-tab-text-color: var(--space-starlight);
+}
+
+/* -- 脚注 -- */
+
+.bibitems, .footnotes-footer {
+    background: transparent;
+}
+
+.bibitems::before, .footnotes-footer::before {
+    background-color: rgb(var(--space-void) / 0.575);
+}
+
+.bibitems .title, .footnotes-footer .title {
+    background-color: transparent;
+    color: rgb(var(--space-moon));
+    font-family: var(--header-font);
+    margin-block-end: 0rem;
+    padding-top: 0.25rem;
+}
+
+.bibitems .title,
+.footnotes-footer .title {
+    color: rgb(var(--basalt-main-text-color));
+}
+
+:is(.footnotes-footer, .bibitems) .title {
+    color: rgb(var(--space-moon));
+    font-family: var(--header-font);
+    font-size: 1.5em;
+}
+
+.hovertip {
+    padding: 0.375rem;
+    background: rgb(var(--space-void) / 0.5);
+    border: rgb(var(--space-moon));
+    -webkit-backdrop-filter: blur(0.25rem);
+    backdrop-filter: blur(0.25rem);
+}
+
+.hovertip .content .footnote .f-heading,
+.hovertip .content .reference .r-heading {
+    color: rgb(var(--basalt-main-text-color));
+}
+
+.hovertip {
+    border: solid 0.125rem rgb(var(--basalt-UI-dark-palette)) !important;
+}
+
+/* ------- 界面 ------- */
+
+.owindow {
+    border: none;
+    background-color: rgb(var(--space-void));
+}
+
+.owindow .title {
+    cursor: initial;
+    padding: 0.375rem 0.675rem;
+    background-color: rgb(var(--space-nebula) / 0.125);
+    height: auto;
+}
+
+/* -- 预览消息 -- */
+
+.preview-message {
+    background-color: rgb(var(--space-void));
+    border: dashed 0.1rem rgb(var(--space-moon));
+    padding: 0.25rem 1.325rem;
+}
+
+a[onclick="document.getElementById('action-area-top').innerHTML='';"] {
+    color: rgb(var(--basalt-cancel-color));
+}
+
+/* -- 历史记录浏览消息 -- */
+
+#page-version-info {
+    background-color: rgb(var(--space-void));
+    border: dashed 0.1rem rgb(var(--space-moon));
+    padding: 0.25rem 1.325rem;
+}
+
+a[onclick="document.getElementById('page-version-info').style.display='none'"] {
+    color: rgb(var(--basalt-cancel-color));
+}
+
+/* ------- 标签 ------- */
+
+#main-content > .page-tags {
+    flex-direction: row-reverse;
+    margin-block: 1rem;
+}
+
+#main-content > .page-tags > span {
+    align-items: center;
+    padding: .5rem;
+    gap: .5rem;
+    box-sizing: border-box;
+    max-width: calc(100% - var(--main-content-side-margin) * 2);
+    background-color: rgb(var(--header-background-color));
+    -webkit-backdrop-filter: blur(var(--basalt-UI-blur));
+    backdrop-filter: blur(var(--basalt-UI-blur));
+}
+
+#main-content > .page-tags::before {
+    content: "";
+    display: block;
+    background-color: rgb(var(--basalt-main-text-color), .575);
+    min-width: var(--main-content-side-margin);
+    height: .05rem;
+    align-self: center;
+}
+
+.meta-tags {
+    flex-direction: row-reverse;
+    margin-block: 1rem;
+}
+
+/* ------- 底栏 ------- */
+
+#revision-list .page-history tr[id*="revision-row"] td:nth-child(3) > span::before {
+    background: rgb(var(--basalt-undertone));
+}
+
+#revision-list .page-history tr[id*=revision-row]::before {
+    color: rgb(var(--space-void));
+}
+
+#history-form-1 > table.form > tbody > tr:first-child > td:first-child {
+    color: rgb(var(--basalt-main-text-color));
+}
+
+.yui-ac-content {
+    border: solid .05rem rgb(var(--general-border-color));
+    background-color: rgb(var(--basalt-background-color));
+}
+
+#action-area, #page-options-container {
+    width: auto;
+    margin-inline: calc(1.5rem + 2.5vw);
+}
+
+#action-area > h1, #history-subarea > h2 {
+    color: rgb(var(--space-sun));
+    grid-row-start: 1;
+    font-size: calc(var(--true-font-size) * 1.2);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: .425rem 0;
+}
+
+#action-area > h1::after, #action-area > h1::before, #history-subarea > h2::after, #history-subarea > h2::before {
+    content: "";
+    display: block;
+    background-color: rgb(var(--space-sun));
+    height: .1rem;
+    min-width: 2.5ch;
+    flex-grow: 1;
+}
+
+#action-area > h1::before, #history-subarea > h2::before {
+    margin-right: .5ch;
+}
+
+#action-area > h1::after, #history-subarea > h2::after {
+    margin-left: .5ch;
+    min-width: 4.25ch;
+}
+
+#action-area div.button, .action-area-close {
+    border: solid .125em rgb(var(--space-sun)) !important;
+    outline: rgb(var(--space-sun)) solid 0 !important;
+    font-weight: 700;
+}
+
+#action-area div.button:is(:hover, :focus), .action-area-close:is(:hover, :focus) {
+    background-color: rgb(var(--space-sun)) !important;
+    border-color: rgb(var(--space-sun)) !important;
+    font-weight: 700;
+}
+
+#action-area div.buttons > :is([name=cancel], [onclick*="page.listeners.closeActionArea(event)"]) {
+    --button-text-color: var(--basalt-cancel-color);
+    font-weight: 700;
+}
+
+#action-area .text > :is([name=title], [onclick*="page.listeners.closeActionArea(event)"]) {
+    --button-text-color: var(--basalt-cancel-color);
+    font-weight: 700;
+}
+
+#action-area div.buttons > :is([name=save-continue], [onclick*="WIKIDOT.modules.PageEditModule.listeners.saveAndContinue(event)"]) {
+    --button-text-color: var(--basalt-positive-color);
+    font-weight: 700;
+}
+
+[onclick*="WIKIDOT.modules.PageEditModule.listeners.confirmExpiration(event)"], [onclick*="WIKIDOT.modules.PageEditModule.listeners.recreateExpiredLock(event)"] {
+    font-weight: 700;
+}
+
+.btn-danger:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+.btn-warning:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+[class*="button-yes,-revert"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+[onclick="$('parent-page-name').value=''; return false;"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+[onclick="$('page-tags-input').value=''"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+[onclick*="WIKIDOT.modules.EditMetaModule.listeners.save(event, true)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+[onclick*="WIKIDOT.modules.EditMetaModule.listeners.save(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+[onclick*="WIKIDOT.modules.RenamePageModule.listeners.rename(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]),
+[onclick*="WIKIDOT.modules.RenamePageModule.listeners.deletePage(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]) {
+    --button-text-color: var(--basalt-cancel-color);
+    font-weight: 700;
+}
+
+.btn-danger:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+.btn-warning:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+[class*="button-yes,-revert"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+[onclick="$('parent-page-name').value=''; return false;"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+[onclick="$('page-tags-input').value=''"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+[onclick*="WIKIDOT.modules.EditMetaModule.listeners.save(event, true)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+[onclick*="WIKIDOT.modules.EditMetaModule.listeners.save(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+[onclick*="WIKIDOT.modules.RenamePageModule.listeners.rename(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before,
+[onclick*="WIKIDOT.modules.RenamePageModule.listeners.deletePage(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::before {
+    content: "⚠ ";
+}
+
+.btn-danger:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+.btn-warning:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+[class*="button-yes,-revert"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+[onclick="$('parent-page-name').value=''; return false;"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+[onclick="$('page-tags-input').value=''"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+[onclick*="WIKIDOT.modules.EditMetaModule.listeners.save(event, true)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+[onclick*="WIKIDOT.modules.EditMetaModule.listeners.save(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+[onclick*="WIKIDOT.modules.RenamePageModule.listeners.rename(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after,
+[onclick*="WIKIDOT.modules.RenamePageModule.listeners.deletePage(event)"]:not(.action-area-close):not([onclick*="WIKIDOT.modules.EditMetaModule.utils.reload"]):not(.btn-small, .btn-sm)::after {
+    content: " (敏感操作)";
+}
+
+#action-area input[type="submit"] {
+    --button-text-color: var(--basalt-positive-color);
+    font-weight: 700;
+}
+
+div#lock-info::before {
+    content: '您握有一个独占的15分钟锁定，这将会阻止其他人编辑您正在作业的页面。\A这个锁定将在闲置';
+    display: inline;
+    font-size: .82rem;
+    white-space: pre-wrap;
+}
+
+div#lock-info::after {
+    content: '秒后失效。';
+    display: inline;
+    font-size: .82rem;
+}
+
+.wd-editor-toolbar-panel div > ul > li.sfhover > a:not(:hover, :focus)::after, .wd-editor-toolbar-panel div > ul > li:focus-within > a:not(:hover, :focus)::after, .wd-editor-toolbar-panel ul li a:is(:hover, :focus)::after {
+    background-color: rgb(var(--space-void));
+}
+
+#edit-page-title[type="text"] {
+    color: rgb(var(--space-sun));
+}
+
+#rename-option-delete p {
+    font-size: 0;
+}
+
+#rename-option-delete p::before {
+    content: "警告： ";
+    color: rgb(var(--basalt-cancel-color));
+    font-weight: 700;
+    font-size: 14.8px;
+}
+
+#rename-option-delete p::after {
+    content: " 此操作将永久删除该页面及所有数据且不可恢复。如果您确认理解并愿意承担上述风险，请点击 删除 继续。";
+    font-weight: 700;
+    font-size: 14.8px;
+}
+
+div[id*="page-options-bottom"] > a:is(:hover, :focus) {
+    color: rgb(var(--basalt-main-text-color));
+}
+
+div[id*=page-options-bottom] > a {
+    color: rgb(var(--space-moon));
+    border-bottom: solid .05em rgb(var(--space-moon));
+}
+
+div[id*=page-options-bottom] > a:is(:hover, :focus) {
+    color: rgb(var(--space-sun));
+    border-bottom: solid .1em rgb(var(--space-sun));
+}
+
+#more-options-button:is(:hover, :focus) {
+    color: rgb(var(--basalt-main-text-color));
+    background-color: rgb(var(--general-border-color));
+}
+
+#more-options-button {
+    background-color: rgb(var(--space-moon));
+    color: rgb(var(--space-void) / 0.575);
+    border: none;
+    font-weight: 700;
+}
+
+#more-options-button:is(:hover, :focus) {
+    color: rgb(var(--space-void) / 0.575);
+    background-color: rgb(var(--space-sun));
+}
+
+form#edit-page-form table.edit-page-bottomtable tr td:nth-of-type(1) > div:nth-of-type(1):focus-within {
+    color: rgb(var(--basalt-main-text-color));
+}
+
+:is(#file-upload-form table.form, form[onsubmit*="setParent"] > table.form, #rename-option-rename table.form) > tbody > tr > td:nth-child(1) {
+    color: rgb(var(--basalt-main-text-color)) !important;
+}
+
+/* ------- 底部图片 ------- */
+
+#footer {
+    position: relative;
+    background-color: transparent;
+    color: rgb(var(--space-starlight));
+    margin-top: calc(7.25rem + 11.25vw);
+    overflow: unset;
+    isolation: isolate;
+}
+
+#footer::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: calc(8rem + 13.25vw);
+    width: 100%;
+    background-image: var(--space-footer-bg);
+    background-size: cover;
+    background-position: center top;
+    z-index: -1;
+    pointer-events: none;
+}
